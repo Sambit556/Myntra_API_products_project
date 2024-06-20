@@ -74,14 +74,15 @@ function productsDetails() {
                b2.forEach(element => {
                     element.addEventListener("click", () => {
                          selectedSize = element.innerText;
-                         console.log(selectedSize,element);
-                         element.style.color="rgb(227, 94, 116)"
-                         element.style.border=" 3px solid rgb(227, 94, 116)"
+                         console.log(selectedSize, element);
+                         element.style.color = "rgb(227, 94, 116)"
+                         element.style.border = " 3px solid rgb(227, 94, 116)"
                          appearText.innerText = ""
                     })
                })
 
-               bagbtn.addEventListener("click", () => {
+               bagbtn.addEventListener("click", (event) => {
+                    event.preventDefault();
                     if (selectedSize) {
                          bagbtn.innerText = "ADDED SUCCESSFULLY 🌟✔️😎"
                          alert("Added to cart successfully");
@@ -89,9 +90,50 @@ function productsDetails() {
                          b2.forEach(el => {
                               el.style.color = "black";
                               el.style.border = "3px solid #ddd";
-                          });
-                          selectedSize = null;
+                         });
+                         selectedSize = null;
 
+                         let count = 0
+
+                         let itemCart = document.querySelector("#itemCart");
+                         itemCart.innerText = ++count;
+                         console.log(count); 
+                         console.log(itemCart.innerText);
+                        if(count>=0){
+                         itemCart.style = "";
+                        }
+
+                         if (bagbtn.innerText == "ADDED SUCCESSFULLY 🌟✔️😎") {
+                              bagbtn.addEventListener("click", () => {
+
+                                   let itemDetails = {
+                                        "title": products.title,
+                                        "description": products.description,
+                                        "category": products.category,
+                                        "image": products.image,
+                                        "price": products.price,
+                                        "size": selectedSize,
+                                        "quantity": 1
+                                   }
+                                   function storeItems() {
+                                        event.preventDefault();
+                                        fetch("http://localhost:5001/user", {
+                                             method: "POST",
+                                             body: JSON.stringify(itemDetails)
+                                        })
+                                             .then(response => response.json())
+                                             .then(data => {
+                                                 
+                                                  console.log(data)
+                                                  count++
+                                             })
+                                   }
+                                   storeItems()
+
+                                   window.location.href = "./checkOut.html"
+                              })
+                         }
+                         
                     } else {
                          appearText.innerText = "Please select a size !!! "
                          appearText.style.color = "#ff4081"

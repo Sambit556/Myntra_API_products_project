@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Header</title>
+    <link rel="stylesheet" href="./checkOut.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="./download.png" alt="Logo">
+        </div>
+        <div class="steps">
+            <span class="active" style="text-decoration: underline">BAG</span>
+            <span>----------</span>
+            <span>ADDRESS</span>
+            <span>----------</span>
+            <span>PAYMENT</span>
+        </div>
+        <div class="secure">
+            <img src="./sprite-secure.png" alt="Secure">
+            <span>100% SECURE</span>
+        </div>
+    </div>
+    <hr>
+    <section class="secbody">
+        <div class="cart-container">
+            <div class="address-section">
+                <div class="address-info">
+                    <p>Deliver to: <strong>Sambit Kumar</strong></p>
+                    <p>4HFX+833, Kojjepalle, Andhra Pradesh 515401</p>
+                </div>
+                <button class="change-address-btn">CHANGE ADDRESS</button>
+            </div>
+
+            <div class="offers-section">
+                <p><strong>🛒 Available Offers</strong></p>
+                <p id="offers-section-p">10% Instant Discount upto ₹1000 on IDFC Debit and Credit Cards on a min spend of ₹2,500. TCA</p>
+                <a href="">Show More ⬇️</a>
+            </div>
+
+            <div class="items-header">
+                <div class="items-selected">
+                    <input type="checkbox" checked id="checkboxing">
+                    <span>3/3 ITEMS SELECTED</span>
+                </div>
+                <div class="items-actions">
+                    <span id="removeItems">REMOVE</span>
+                    <span>||</span>
+                    <span style="margin-right: 10px;">MOVE TO WISHLIST</span>
+                </div>
+            </div>
+
+            <div class="item"></div>
+
+        </div>
+
+        <div class="coupons-container">
+            <div class="coupons-section">
+                <div class="apply-coupons">
+                    <label for="coupon">COUPONS</label>
+                    <div class="coupon-input">
+                        <input type="text" id="coupon" placeholder="Apply Coupons">
+                        <button>APPLY</button>
+                    </div>
+                </div>
+
+                <div class="donate-section">
+                    <label for="donate">
+                        <input type="checkbox" id="donate"> Donate and make a difference
+                    </label>
+                    <div class="donate-options">
+                        <button>₹10</button>
+                        <button>₹20</button>
+                        <button>₹50</button>
+                        <button>₹100</button>
+                    </div>
+                    <a href="#">Know More</a>
+                </div>
+            </div>
+
+            <div class="price-details">
+                <h2>PRICE DETAILS (Card Items)</h2>
+                <div class="price-row">
+                    <span>Total MRP</span>
+                    <span id="mrp"></span>
+                </div>
+                <div class="price-row">
+                    <span>Discount on MRP</span>
+                    <span class="discount">- ₹11.78</span>
+                </div>
+                <div class="price-row">
+                    <span>Coupon Discount</span>
+                    <span class="apply-coupon">Apply Coupon</span>
+                </div>
+                <div class="price-row">
+                    <span>Platform Fee <a href="#">Know More</a></span>
+                    <span>FREE</span>
+                </div>
+                <div class="price-row">
+                    <span>Shipping Fee <a href="#">Know More</a></span>
+                    <span><s>₹79</s> FREE</span>
+                </div>
+                <div class="total-amount">
+                    <span>Total Amount</span>
+                    <span id="FinalPrice">₹2,607</span>
+                </div>
+                <button class="place-order">PLACE ORDER</button>
+            </div>
+        </div>
+    </section>
+    <script src="./checkOut.js"></script>
+</body>
+
+</html>
